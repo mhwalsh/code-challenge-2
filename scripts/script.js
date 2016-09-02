@@ -65,9 +65,16 @@ $(function functionName() {
     var greenDivName = 'greenDiv';
     appendToDom(greenDivName);
   });
+
 });
 
-/*Function to append new divs to dom. Takes the div id name.*/
+/*Function to append new divs to dom. Takes the div id name.
+  Also addes an event listener to these divs class */
 function appendToDom(idName){
-  $('.boxesDiv').append('<div id="'+ idName + '"></div>');
+  $('.boxesDiv').append('<div class="boxDiv" id="'+ idName + '"></div>');
+
+  //add event listener to remove the div if clicked
+  $('.boxDiv').on('click', function() {
+    this.remove();
+  });
 }
